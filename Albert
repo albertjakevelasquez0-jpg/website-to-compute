@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hacked!</title>
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 80px;
+    }
+    h1 {
+      font-size: 3em;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { color: red; }
+    }
+    #console {
+      margin-top: 40px;
+      font-size: 1.2em;
+      text-align: left;
+      display: inline-block;
+      background: #111;
+      padding: 20px;
+      border: 2px solid lime;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+    }
+    .progress-bar {
+      margin-top: 20px;
+      width: 100%;
+      background: #333;
+      border: 2px solid lime;
+      border-radius: 5px;
+    }
+    .progress {
+      height: 20px;
+      width: 0%;
+      background: red;
+      animation: load 10s forwards;
+    }
+    @keyframes load {
+      100% { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <h1>⚠️ You Have Been Hacked ⚠️</h1>
+  <p>By: <b>Albert</b> 😎</p>
+
+  <div id="console"></div>
+
+  <div class="progress-bar">
+    <div class="progress"></div>
+  </div>
+
+  <p style="margin-top:20px;">(Relax, this is just a prank 😂)</p>
+
+  <script>
+    const messages = [
+      "Connecting to your device...",
+      "Bypassing security...",
+      "Downloading private files...",
+      "Installing virus.exe...",
+      "Encrypting photos...",
+      "Uploading contacts...",
+      "HAHA! You’ve been hacked by Albert! 💀"
+    ];
+
+    let i = 0;
+    function typeMessage() {
+      if (i < messages.length) {
+        const consoleBox = document.getElementById("console");
+        const line = document.createElement("p");
+        line.textContent = "> " + messages[i];
+        consoleBox.appendChild(line);
+        i++;
+        setTimeout(typeMessage, 1500);
+      }
+    }
+
+    typeMessage();
+  </script>
+</body>
+</html>
